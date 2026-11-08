@@ -159,7 +159,7 @@ tuple<vector<int>, int, vector<int>> out_neighborhood_evaluate(vector<int> solut
 
 
 // in_neighborhood: "edge", "node"
-vector<int> local_search_steepest(vector<int> init_solution, string in_neighborhood, const vector<vector<int>> &dist_matrix, const vector<Point> &points) {
+tuple<vector<int>, int> local_search_steepest(vector<int> init_solution, string in_neighborhood, const vector<vector<int>> &dist_matrix, const vector<Point> &points) {
     vector<int> best_solution = init_solution;
     int best_cost = tsp_calculate_costs(best_solution, dist_matrix, points);
     
@@ -169,9 +169,10 @@ vector<int> local_search_steepest(vector<int> init_solution, string in_neighborh
             not_in_solution.push_back(i);
         }
     }
-    
+    int evaluate_counter = 0;
     while (true)
     {   
+        evaluate_counter++;
         vector<int> in_solution;
         int in_cost = INT_INFINITY;
         auto [out_solution, out_cost, new_not_in_solution] = out_neighborhood_evaluate(best_solution, not_in_solution, best_cost, dist_matrix, points);
@@ -192,7 +193,7 @@ vector<int> local_search_steepest(vector<int> init_solution, string in_neighborh
             break;
         }
     }
-    return best_solution;
+    return {best_solution, evaluate_counter};
 }
 
 struct Move 

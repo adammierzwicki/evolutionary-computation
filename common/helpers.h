@@ -27,8 +27,7 @@ vector<Point> load_points(const string &filename);
 int euclidean_distance(const Point &p1, const Point &p2);
 vector<vector<int>> calculate_distance_matrix(const vector<Point> &points);
 
-tuple<int, int, int> tsp_calculate_costs(const vector<int> &solution, const vector<vector<int>> &dist_matrix, const vector<Point> &points);
-int tsp_verify(const vector<int> &solution, const vector<vector<int>> &dist_matrix, const vector<Point> &points);
+int tsp_calculate_costs(const vector<int> &solution, const vector<vector<int>> &dist_matrix, const vector<Point> &points);
 
 int random_start_idx(const vector<Point> &points);
 double elapsed_ms(chrono::steady_clock::time_point start);

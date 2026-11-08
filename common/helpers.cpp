@@ -68,22 +68,14 @@ vector<vector<int>> calculate_distance_matrix(const vector<Point> &points)
     return m;
 }
 
-tuple<int, int, int> tsp_calculate_costs(const vector<int> &solution, const vector<vector<int>> &dist_matrix, const vector<Point> &points)
+int tsp_calculate_costs(const vector<int> &solution, const vector<vector<int>> &dist_matrix, const vector<Point> &points)
 {
-    int dist_cost = 0;
-    int node_cost = 0;
+    int cost = 0;
     for (size_t i = 0; i < solution.size(); ++i)
     {
-        node_cost += points[solution[i]].cost;
-        dist_cost += dist_matrix[solution[i]][solution[(i + 1) % solution.size()]];
+        cost += points[solution[i]].cost + dist_matrix[solution[i]][solution[(i + 1) % solution.size()]];
     }
-    return {node_cost, dist_cost, node_cost + dist_cost};
-}
-
-int tsp_verify(const vector<int> &solution, const vector<vector<int>> &dist_matrix, const vector<Point> &points)
-{
-    auto [node_cost, dist_cost, total_cost] = tsp_calculate_costs(solution, dist_matrix, points);
-    return total_cost;
+    return cost;
 }
 
 int random_start_idx(const vector<Point> &points)
