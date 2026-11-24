@@ -1,0 +1,13 @@
+instance,measure,reference,pearson_r
+A,common edges,average similarity to other local optima,-0.6613
+A,common edges,similarity to best of 1000 local optima,-0.4720
+A,common edges,similarity to ILS solution (cost 71484),-0.6233
+A,common nodes,average similarity to other local optima,-0.4541
+A,common nodes,similarity to best of 1000 local optima,-0.5536
+A,common nodes,similarity to ILS solution (cost 71484),-0.6853
+B,common edges,average similarity to other local optima,-0.6551
+B,common edges,similarity to best of 1000 local optima,-0.4374
+B,common edges,similarity to ILS solution (cost 48187),-0.5736
+B,common nodes,average similarity to other local optima,-0.4712
+B,common nodes,similarity to best of 1000 local optima,-0.4416
+B,common nodes,similarity to ILS solution (cost 48187),-0.6105
